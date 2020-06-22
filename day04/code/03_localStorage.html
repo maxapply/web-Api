@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 给localStorage存入键名是‘data’的数据值是‘今天是个好日子’
+  localStorage.setItem('data','今天是个好日子');
+  var data = localStorage.getItem('data');
+  console.log(data);
+  localStorage.removeItem('data');
+  localStorage.clear();
+  </script>
+</body>
+</html>

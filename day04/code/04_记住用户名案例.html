@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <input type="checkbox" name="" id="">
+  <script>
+  // 思路：
+  // 1. 点击checkbox : true: 存   false: 删除
+  // 2. 进入页面就去取，取出来展示到页面上
+
+  // 获取text
+  var text = document.querySelector('input');
+  // 1. 获取事件源 --- checkbox
+  var btn = document.querySelectorAll('input')[1];
+  // 2. 添加事件类型 --- 点击
+  btn.onclick = function(){
+
+  // 3. 添加事件处理程序
+  // 3.1 当checked属性值是true时，将text输入框中的内容，存到localStorage
+    if(this.checked){
+      if(text.value.trim()){
+        localStorage.setItem('name',text.value);
+      }
+    }else{
+  // 3.2 当checked属性值是false时，将text输入框中的内容，从localStorage中删除
+      localStorage.removeItem('name');
+    }
+  }
+  // 如果打开页面时，localStorage中存在用户名
+  if(localStorage.getItem('name')){
+  // 1. 将该用户名取出来
+    var nameVal = localStorage.getItem('name');
+  // 2. 给输入框赋值
+    text.value = nameVal;
+  // 3. 复选框应该选中
+    btn.checked = true;
+  }
+  </script>
+</body>
+</html>

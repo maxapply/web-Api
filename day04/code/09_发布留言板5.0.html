@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .weibo {
+      width: 600px;
+      border: 1px solid #ccc;
+
+      margin: 100px auto;
+      padding: 10px;
+
+    }
+
+    .weibo-text {
+      width: 590px;
+      height: 140px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+      resize: none;
+    }
+
+    .weibo-text:focus {
+      border-color: #f60;
+    }
+
+    .weibo-btn {
+      width: 80px;
+      height: 30px;
+      background-color: #f90;
+      color: #fff;
+      border: 0 none;
+      margin-top: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+      outline: 0 none;
+    }
+
+    .weibo-list {
+      padding-top: 10px;
+    }
+
+    .weibo-list li {
+      font-size: 14px;
+      line-height: 30px;
+      border-bottom: 1px dotted #ccc;
+      overflow: hidden;
+    }
+
+    .weibo-list li p {
+      float: left;
+    }
+
+    .weibo-list li span {
+      float: right;
+      cursor: pointer;
+    }
+
+    .weibo-list li input {
+      height: 24px;
+      line-height: 24px;
+      width: 300px;
+      font-size: 14px;
+      border: 0 none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="weibo">
+    <textarea class="weibo-text"></textarea>
+    <input class="weibo-btn" value="发布" type="button">
+    <ul class="weibo-list">
+    </ul>
+  </div>
+  <script>
+  //留言存储功能
+  // 1. 发布时，将数据数据存储到localStorage中
+  // 2. 删除时，将数据数据从localStorage中删除
+ 
+  
+  // 思路：点击按钮根据输入框输入的内容创建元素，并将该元素插入到ul中
+  // 获取ul元素
+  var ul = document.querySelector('.weibo-list');
+
+  // 5. 发布时，将数据数据存储到localStorage中  
+  // 5.1 创建一个空数组,存储发布数据
+  // var data = [];
+  
+  // 7. 将localStorage中的数据取出来，展示到页面上
+  // 7.1 将localStorage中的数据取出来
+  // 7.2 将localStorage中的数据取出来,转换成数组
+  var data = JSON.parse(localStorage.getItem('sendData')) || [];
+  // 7.3 根据数组，创建li元素
+  console.log(data);
+  for(var i = 0; i<data.length; i++){
+  // 7.3.1 创建li元素
+    var li = document.createElement('li');
+  // 7.3.2 li元素的内容是data[i].text  删除自定义属性data[i].id
+    li.innerHTML = data[i].text + '<span data-id = "'+data[i].id+'"></span>';
+  // 7.3.3 将li元素添加到ul中
+    ul.insertBefore(li,ul.children[0]);
+  }
+
+
+  // 获取输入框
+  var text = document.querySelector('textarea');
+  // 1. 获取事件源 --- 按钮
+  var btn = document.querySelector('input');
+  // 2. 添加点击事件 --- click
+  btn.onclick = function (){
+  // 3. 添加事件处理程序 
+  // 3.1 获取输入框内容
+    var val = text.value;
+  // 判断输入框内容是否为空
+    if(val.trim()){
+    // 5.2 创建一个对象，存储唯一标识和text内容
+      var obj = {};
+      obj.id = +new Date();
+      obj.text = val;
+    // 5.3 把obj存到数组中
+      data.push(obj);
+      console.log(data);
+    // 5.4 将data，JSON转换  
+      console.log(JSON.stringify(data));
+    // 5.5 将JSON格式的data存到localStorage
+      localStorage.setItem('sendData',JSON.stringify(data));
+      
+    // 3.2 创建li元素,li元素的内容是输入框的内容
+      var li = document.createElement('li');
+      li.innerHTML = val + '<span data-id="'+obj.id+'">删除</span>';
+    // 3.3 将li元素插入到ul中
+      ul.insertBefore(li,ul.firstElementChild);
+    // 3.4 清空输入框
+      text.value = '';
+
+    }
+  }
+  console.dir(btn);
+  
+  // 添加删除功能
+  // 思路：事件委托，当点击的元素是删除按钮时，就将删除按钮的父级li元素从ul中删除
+  ul.onclick = function (){
+    if(event.target.nodeName == 'SPAN'){
+      ul.removeChild(event.target.parentNode);
+     /*  // 6.1. 从localStorage中将sendData数据取出来
+      localStorage.getItem('sendData');
+      // 6.2. 将取出来的数据进行格式转换 */
+      console.log(data);
+      
+      // 6.3. 将数组中具体的那条数据删除
+      for(var i = 0; i<data.length; i++){
+        if(data[i].id == event.target.dataset.id){
+          console.log('可以删除该条数据');
+          data.splice(i,1);
+      // 6.4. 再将数组数据转换成JSON格式
+          console.log(data);
+          //JSON.stringify(data);
+      // 6.5. 将数据存储到localStorage
+          localStorage.setItem('sendData',JSON.stringify(data))
+        }
+      }
+    }
+  }
+  
+  // 添加键盘发布功能
+  // 1. 事件源 --- document
+  // 2. 添加事件类型 --- keyup
+  document.onkeyup = function(e){
+  // 3. 添加事件处理程序 --- 判断按下的键是否是enter+ctrl 发布按钮添加的函数
+    if(e.keyCode == 13 && e.ctrlKey){
+      btn.onclick();
+    }
+  }
+  </script>
+</body>
+
+</html>

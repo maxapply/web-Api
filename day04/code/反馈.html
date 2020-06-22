@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .weibo {
+      width: 600px;
+      border: 1px solid #ccc;
+
+      margin: 100px auto;
+      padding: 10px;
+
+    }
+
+    .weibo-text {
+      width: 590px;
+      height: 140px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+      resize: none;
+    }
+
+    .weibo-text:focus {
+      border-color: #f60;
+    }
+
+    .weibo-btn {
+      width: 80px;
+      height: 30px;
+      background-color: #f90;
+      color: #fff;
+      border: 0 none;
+      margin-top: 5px;
+      border-radius: 3px;
+      cursor: pointer;
+      outline: 0 none;
+    }
+
+    .weibo-list {
+      padding-top: 10px;
+    }
+
+    .weibo-list li {
+      font-size: 14px;
+      line-height: 30px;
+      border-bottom: 1px dotted #ccc;
+      overflow: hidden;
+    }
+
+    .weibo-list li p {
+      float: left;
+    }
+
+    .weibo-list li span {
+      float: right;
+      cursor: pointer;
+    }
+
+    .weibo-list li input {
+      height: 24px;
+      line-height: 24px;
+      width: 300px;
+      font-size: 14px;
+      border: 0 none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="weibo">
+    <textarea class="weibo-text"></textarea>
+    <input class="weibo-btn" value="发布" type="button">
+    <ul class="weibo-list">
+    </ul>
+  </div>
+  <script>
+    // 获取textarea
+    var text = document.querySelector('.weibo-text');
+    // 获取ul
+    var ul = document.querySelector('ul');
+    // 1. 获取事件源 --- 按钮
+    var btn = document.querySelector('.weibo-btn');
+    // 2. 添加事件类型 --- click
+    btn.onclick = function () {
+      // 3. 添加事件处理程序
+      // 判断text是否有内容
+      if (text.value.trim()) {
+        // 3.1 创建li元素
+        var li = document.createElement('li');
+        // 3.2 获取输入框的内容，将内容给li
+        li.innerHTML = text.value + '<span>删除</span>';
+        // 3.3 将li元素添加到ul的第一个元素的前面
+        ul.insertBefore(li, ul.children[0]);
+        // 清空输入框
+        text.value = '';
+
+      }
+    }
+    // 添加删除功能
+    // 1. 获取事件源---ul
+    // 2. 添加点击事件 --- click
+    ul.onclick = function(e){
+    // 3. 添加事件处理程序
+    // 3.1 判断点击的是否是span元素
+      if(e.target.nodeName == 'SPAN'){
+    // 3.2 将li元素从父级ul中删除
+        ul.removeChild(e.target.parentNode);
+      }
+    }
+  </script>
+</body>
+
+</html>

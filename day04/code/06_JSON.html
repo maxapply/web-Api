@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  var arr = [{name: '小王',age: 26 , tall : '1.60m'},{name: '小李',age: 23 , tall : '1.69m'}];
+  // 1. 将arr存储到localStorage
+  var str = JSON.stringify(arr);
+  console.log(typeof str);
+  // 2. 将他str 存储到localStorage
+  localStorage.setItem('str',str);
+  // 3. 将str从localStorage中取出来
+  var str1 = localStorage.getItem('str');
+  console.log(str1);
+  // 4. 将str1转换成原来的数据类型（数组）
+  var arr1 = JSON.parse(str1);
+  console.log(arr1);
+  // 5. 将小李从数组中取出
+  console.log(arr1[1].name);
+  
+  </script>
+</body>
+</html>
