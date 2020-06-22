@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" class='ipt'>
+  <script>
+  // 1. 创建一个input
+  // 2. 给input元素添加获得焦点事件
+  // 3. 在事件处理程序中打印'获得焦点
+  // 4. 给input元素添加失去焦点事件
+  // 5. 在事件处理程序中打印'失去焦点
+
+
+
+  // 1. 获取事件源 --- input
+  var ipt = document.getElementsByClassName('ipt')[0];
+  // 2. 添加事件类型 --- 获得焦点
+  ipt.onfocus = function (){
+  // 3. 添加事件处理程序 --- 打印'获得焦点
+    console.log('获得焦点');
+    
+  }
+
+  // 2. 添加事件类型 --- 失去焦点
+  ipt.onblur = function (){
+  // 3. 添加事件处理程序  --- 打印'失去焦点
+    console.log('失去焦点');
+    
+  }
+  </script>
+</body>
+</html>

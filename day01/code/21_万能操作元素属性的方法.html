@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class='one' data-index='01' sex='男'>
+    测试万能操作元素属性的方法
+  </div>
+  <script>
+  // 获取元素
+  var div = document.getElementsByClassName('one')[0];
+  // 1. 获取元素的属性值
+  var classname = div.getAttribute('class');
+  console.log(classname);
+  
+  var dataIndex = div.getAttribute('data-index');
+  console.log(dataIndex);
+  
+  var sex = div.getAttribute('sex');
+  console.log(sex);
+  
+
+  // 2. 设置元素属性
+  div.setAttribute('id','two');
+
+  // 3. 删除元素属性
+  div.removeAttribute('sex');
+  </script>
+</body>
+</html>

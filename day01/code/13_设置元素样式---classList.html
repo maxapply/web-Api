@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .show {
+      display: block;
+    }
+    .hide {
+      display: none;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <div id='first' class='hide'></div>
+  <script>
+    // 1. 获取div元素
+    var div = document.getElementById('first');
+    // 2. 添加类名
+    //div.classList.add('hide','show');
+
+    // 3. 删除类名
+    //div.classList.remove('hide');
+
+    // 4. 切换类名
+    div.classList.toggle('hide');
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 500px;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+      height: 24px;
+    }
+
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>
+        <input type="checkbox" name="" id="checkAll" />全选/全不选
+      </th>
+      <th>菜名</th>
+      <th>商家</th>
+      <th>价格</th>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck" />
+      </td>
+      <td>红烧肉</td>
+      <td>隆江猪脚饭</td>
+      <td>￥200</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck" />
+      </td>
+      <td>香酥排骨</td>
+      <td>隆江猪脚饭</td>
+      <td>￥998</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck" />
+      </td>
+      <td>北京烤鸭</td>
+      <td>隆江猪脚饭</td>
+      <td>￥88</td>
+    </tr>
+  </table>
+  <script>
+    // A: 通过全选按钮控制下方的复选框的状态
+    // 获取下方所有复选框
+    var cks = document.getElementsByClassName('ck');
+    // 1. 获取事件源 --- 全选按钮
+    var checkAll = document.getElementById('checkAll');
+    // 2. 添加点击事件 --- click
+    checkAll.onclick = function (){
+    // 3. 添加事件处理程序 
+      // console.log(this.checked)
+      // cks[0].checked = this.checked;
+      // cks[1].checked = this.checked;
+      // cks[2].checked = this.checked;
+      // 通过全选按钮的状态控制下方复选框的状态
+      var flag = this.checked; // 获取全选按钮的状态
+      for(var i = 0; i<cks.length; i++){
+        cks[i].checked = flag;
+      }
+
+    }
+
+    // B: 通过下方复选框控制全选复选框的状态
+    for(var i = 0; i<cks.length; i++){
+      cks[i].onclick = function(){
+        // 比较cks的总个数和cks中选中状态的元素的个数  相等：全选被选中  不相等 ： 不被选中
+        var count = 0;  // 记录选中状态的个数
+
+        for(var j = 0; j<cks.length; j++){
+          cks[j].checked ? count++ : null;
+        }
+        // console.log(count);
+        // count == cks.length ? checkAll.checked = true : checkAll.checked = false;
+        checkAll.checked = (count == cks.length); // 全选按钮的状态取决于下方复选框的个数和下方选中的复选框的个数是否相等
+      }
+    }
+    // cks[0].onclick = function (){
+    //   var count = 0;
+    //   for(var i=0; i<cks.length;i++){
+    //     if(cks[i].checked){
+    //       count++;
+    //     }
+    //   }
+    //   if(count == cks.length){
+    //     checkAll.checked = true;
+    //   }else{
+    //     checkAll.checked = false;
+    //   }
+    // }
+    // cks[1].onclick = function (){
+    //   var count = 0;
+    //   for(var i=0; i<cks.length;i++){
+    //     if(cks[i].checked){
+    //       count++;
+    //     }
+    //   }
+    //   if(count == cks.length){
+    //     checkAll.checked = true;
+    //   }else{
+    //     checkAll.checked = false;
+    //   }
+    // }
+    // cks[2].onclick = function (){
+    //   var count = 0;
+    //   for(var i=0; i<cks.length;i++){
+    //     if(cks[i].checked){
+    //       count++;
+    //     }
+    //   }
+    //   if(count == cks.length){
+    //     checkAll.checked = true;
+    //   }else{
+    //     checkAll.checked = false;
+    //   }
+    // }
+  </script>
+</body>
+
+</html>

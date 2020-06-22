@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <div data-index = '01'>
+    测试h5自定义属性的方法
+  </div> -->
+  <ul>
+    <li data-index='0'>1</li>
+    <li data-index='1'>2</li>
+    <li data-index='2'>3</li>
+    <li data-index='3'>4</li>
+    <li data-index='4'>5</li>
+  </ul>
+  <script>
+    var li = document.getElementsByTagName('li');
+    // 点击li元素，获取当前点击的元素是第几个
+    for (var i = 0; i < li.length; i++) {
+      li[i].onclick = function () {
+        console.log(i);
+      }
+    }
+    // li[0].onclick = function () {
+    //   console.log(i);
+    // }
+    // li[1].onclick = function () {
+    //   console.log(i);
+    // }
+    // li[2].onclick = function () {
+    //   console.log(i);
+    // }
+    // li[3].onclick = function () {
+    //   console.log(i);
+    // }
+  </script>
+</body>
+
+</html>

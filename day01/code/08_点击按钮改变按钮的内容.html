@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1. 创建一个按钮元素 内容是 --- 关灯
+    2. 点击按钮，将内容修改成 --- 开灯
+    提示：value
+   -->
+   <input type="button" value="关灯">
+   <script>
+     // 1. 获取事件源  --- input
+     var btn = document.getElementsByTagName('input')[0];
+     // 2. 添加点击事件 --- click
+     btn.onclick  = function (){
+     // 3. 添加事件处理程序
+     // 3.1 将内容修改成 --- 开灯
+        
+        if(this.value == '关灯'){
+          this.value = '开灯';
+          document.body.style = 'background-color: rgb(0,0,0)';
+        }else{
+          this.value = '关灯';
+          document.body.style.backgroundColor = 'white';
+        }
+     }
+   </script>
+</body>
+</html>

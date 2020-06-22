@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .show {
+      display: block;
+    }
+    .hide {
+      display: none;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    1. 创建一个元素
+    2. 有两个类名 .show  .hide
+    3. 点击按钮元素，通过修改类名，让元素显示或者隐藏
+   -->
+
+  <div></div>
+  <input type="button" value="隐藏">
+  <script>
+   // 获取div元素
+   var div = document.getElementsByTagName('div')[0];
+   // 1. 获取事件源 --- 按钮
+   var btn = document.getElementsByTagName('input')[0];
+   // 2. 添加事件类型 --- click
+   btn.onclick = function (){
+   // 3. 添加事件处理程序 
+   // 3.1 当按钮的内容是‘隐藏’时，点击按钮，div隐藏，按钮的内容‘显示’
+   // 3.2 当按钮的内容是‘显示‘时，点击按钮，div显示，按钮的内容‘隐藏’
+    if(btn.value == '隐藏'){
+      // div隐藏
+      div.className = 'hide';
+      // 按钮的内容‘显示’
+      this.value = '显示';
+    }else{
+      // div显示
+      div.className = 'show';
+      // 按钮的内容‘隐藏
+      this.value = '隐藏';
+    }
+   }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="按钮">
+  <!-- 点击按钮打印出‘事件添加成功’ -->
+  <script>
+    // 1. 获取事件源
+    var btn = document.getElementsByTagName('input')[0];
+    console.log(btn);
+    
+    // 2. 添加事件类型
+    btn.onclick = function(){
+    // 3. 添加事件处理程序
+      console.log('事件添加成功');
+      console.log(this);
+      
+      
+    }
+    // btn.onclick = fn;
+    // function fn (){
+    //   console.log('哈哈哈');
+      
+    // }
+  </script>
+</body>
+</html>

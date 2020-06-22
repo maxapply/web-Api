@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class='two'>
+    我是测试类名获取元素
+  </div>
+ <!--  1.创建两个ul,在ul内部分别创建4个li
+  2.获取'second'中的所有li -->
+  <ul>
+    <li class='secondLis'>1</li>
+    <li class='secondLis'>2</li>
+    <li class='secondLis'>3</li>
+    <li class='secondLis'>4</li>
+  </ul>
+  <ul class='two'>
+    <li class='secondLis'>5</li>
+    <li class='secondLis'>6</li>
+    <li class='secondLis'>7</li>
+    <li class='secondLis'>8</li>
+  </ul>
+  <script>
+    // 获取'second'中的所有li
+    // var secondLis = document.getElementsByClassName('secondLis');
+    // console.log(secondLis);
+    // 通过第二个ul获取内部的所有li
+    var two = document.getElementsByClassName('two')[1];
+    console.log(two);
+    
+    var secondLis = two.getElementsByClassName('secondLis');
+    console.log(secondLis);
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id ='one'>
+    测试设置元素内容
+  </div>
+  <input type="text" value='我是默认值' class='two'>
+  <script>
+  // 1. 修改普通元素内容
+  // 1.1 获取普通元素 --- div
+  var div = document.getElementById('one');
+  // 1.2 设置div元素的innerHTML  innerText
+  // div.innerHTML = '<a href="#">我是更改了的内容</a>';
+  div.innerText = '<a href="#">我是更改了的内容2</a>';
+  
+  // innerHTML 和 innerText 的区别是  innerHTML识别标签     innerText不识别标签
+  
+  // 2. 修改表单元素内容
+  // 2.1 获取表单
+  var ipt = document.getElementsByClassName('two')[0];
+  // 2.2 修改表单内容
+  ipt.value = '更改了的';
+  </script>
+</body>
+</html>

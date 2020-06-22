@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <ul id='two'>
+    <li class='lis2'>5</li>
+    <li class='lis2'>6</li>
+    <li class='lis2'>7</li>
+    <li class='lis2'>8</li>
+  </ul>
+  <script>
+    // 获取第二个ul中的li元素
+    // 1. 直接获取所有li元素，通过下标5
+    var li6 = document.getElementsByTagName('li')[5];
+    console.log(li6);
+    
+    // 2. 通过第二个ul获取第二个li
+    var ul2 = document.getElementsByTagName('ul')[1];
+    var li2 = ul2.getElementsByTagName('li')[1];
+    console.log(li2);
+    
+    // 3. 通过id获取第二个ul，获取第二个li
+    var ul2 = document.getElementById('two');
+    var li2 = ul2.getElementsByTagName('li')[1];
+    console.log(li2);
+    
+    // 4. 通过类名 lis2 获取第二个li
+    var li2 = document.getElementsByClassName('lis2')[1];
+    console.log(li2);
+    
+
+  </script>
+</body>
+
+</html>
