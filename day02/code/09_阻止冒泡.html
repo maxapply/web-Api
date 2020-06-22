@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #granfather {
+      width: 400px;
+      height: 400px;
+      background-color: green;
+    }
+    #father {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    #son {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="granfather">
+    <div id="father">
+      <div id="son"></div>
+    </div>
+  </div>
+  <script>
+  // 点击每一个div打印当前他自己是谁
+  // 1. 获取事件源
+  var granfather = document.querySelector('#granfather');
+  var father = document.querySelector('#father');
+  var son = document.querySelector('#son');
+ 
+  granfather.addEventListener('click',function(){
+    console.log('爷爷');
+  })
+  father.addEventListener('click',function(e){
+    e.stopPropagation();
+    console.log('爸爸');
+  })
+  son.addEventListener('click',function(e){
+    e.stopPropagation();
+    console.log('儿子');
+  })
+  </script>
+</body>
+</html>

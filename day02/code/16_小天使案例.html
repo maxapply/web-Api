@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+   img {
+     position: absolute;
+   }
+  </style>
+</head>
+<body>
+  <img src="image/tianshi.gif" alt="">
+  <script>
+  
+  // 获取图片
+  var img = document.querySelector('img');
+  // 获取图片宽高
+  // console.log(img.offsetHeight);
+  // 1. 获取事件源 --- document
+  // 2. 添加事件类型 --- mousemove
+  document.onmousemove = function (e){
+  // 3. 添加事件处理程序 --- 用光标的坐标设置小天使的定位
+    var x = e.pageX;
+    var y = e.pageY;
+    img.style.left = x - img.offsetWidth/2 + 'px';
+    img.style.top = y - img.offsetHeight/2 + 'px';
+  }
+  </script>
+</body>
+</html>

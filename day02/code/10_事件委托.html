@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <script>
+    // // 1. 获取事件源 --- li
+    // var lis = document.querySelectorAll('li');
+    // // 2. 添加事件类型 --- click
+    // for(var i = 0 ;i<lis.length; i++){
+    //   lis[i].onclick = function(){
+    // // 3. 添加事件处理程序 --- 打印
+    //     console.log(1);
+        
+    //   }
+    // }
+
+    // 事件委托：把本应该绑定在子元素身上的事件绑定在父元素上
+    // 1. 获取事件源 --- ul
+    var ul = document.querySelector('ul');
+    // 2. 添加点击事件
+    ul.onclick = function(e){
+    // 3. 添加事件处理程序 --- 打印
+      console.log(1);
+      console.log(e.target);
+      if(e.target.innerText == '1' ){
+        console.log('我是第一个li元素');
+      }
+      if(e.target.innerText == '2' ){
+        console.log('我是第二个li元素');
+      }
+    }
+  </script>
+</body>
+</html>

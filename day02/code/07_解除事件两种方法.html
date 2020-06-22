@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1. 创建一个button元素
+    2. 用  element.addEventListener('事件类型'，函数名/匿名函数)  语法给button元素添加两个点击事件
+      分别打印‘我是第n个注册的事件’
+   -->
+  <input type="button" value="按钮">
+  <script>
+  // 1. 获取事件源 --- ipt
+  var btn = document.querySelectorAll('input')[0];
+  // 2. 添加点击事件 --- click
+  btn.onclick = function (){
+  // 3. 添加事件处理程序
+    console.log('我是第1个注册的事件');
+  }
+  
+  btn.onclick = null;
+
+
+
+  // 1. 获取事件源 --- ipt
+  // var btn = document.querySelectorAll('input')[0];
+  // // 2. 添加事件类型 --- click
+  // btn.addEventListener('click',fn1)
+
+  // // 2. 添加事件类型 --- click
+  // btn.addEventListener('click',fn2)
+
+  // function fn1 (){
+  //   console.log('我是第1个注册的事件');
+  // }
+  // function fn2 (){
+  //   console.log('我是第2个注册的事件');
+  // }
+
+  // // 解绑 removeEventListener
+  // btn.removeEventListener('click',fn1);
+  // btn.removeEventListener('click',fn2);
+  </script>
+</body>
+</html>

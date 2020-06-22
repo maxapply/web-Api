@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="" checked = "checked">
+  <input type="checkbox" name="" id="">
+  <input type="checkbox" name="" id="">
+  <script>
+    // 1. 获取所有的checkbox
+    var cks = document.getElementsByTagName('input');
+    // 2. 数选中的个数
+    for(var j = 0; j<cks.length; j++){
+      cks[j].onclick = function (){
+        var count = 0;
+        for(var i = 0; i<cks.length; i++){
+          if(cks[i].checked){
+            count++
+          }
+        }
+        console.log(count);
+
+      }
+
+    }
+
+
+    
+  </script>
+</body>
+</html>

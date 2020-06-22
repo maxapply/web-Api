@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 500px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    测试鼠标事件
+  </div>
+  <script>
+   // 1. 获取事件源
+   var div = document.querySelectorAll('div')[0];
+   // 2. 添加事件类型 --- 鼠标按下
+   div.onmousedown = function(){
+   // 3. 添加事件处理程序 --- 打印鼠标按下啦
+    console.log('鼠标按下');
+    
+   }
+   // 2. 添加事件类型 --- 鼠标抬起
+   div.onmouseup = function(){
+   // 3. 添加事件处理程序 --- 打印鼠标抬起啦
+    console.log('鼠标抬起');
+    
+   }
+    // 2. 添加事件类型 --- 点击
+    div.onclick = function(){
+   // 3. 添加事件处理程序 --- 打印鼠标点击啦
+    console.log('鼠标点击');
+    
+   }
+   
+   div.onmousemove = function(e){
+     console.log('鼠标移动事件');
+     console.log(e.clientX);
+     console.log(e.clientY);
+     
+     
+   }
+
+  </script>
+</body>
+</html>

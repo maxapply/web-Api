@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id='one' class='two'>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
+  <ul  class='two'>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+  </ul>
+  <input type="text">
+  <script>
+    // 1. 获取元素的四种方法
+    // 1.1 通过id获取元素
+    var one = document.getElementById('one');
+    console.log(one);
+    console.dir(one);
+    // 易错点 
+    // 1) 参数：数据类型是字符串
+    // 2) document 是固定写法，不可以换成别的元素对象
+
+    // 1.2 通过类名获取元素
+    var two = document.getElementsByClassName('two')[1];
+    console.log(two);
+    // two.onclick = function(){
+    //   console.log(1);
+      
+    // }
+    // 易错点
+    // 1) 该方法返回的是一个伪数组数据，所以在获取具体的某个元素对象，需要用下标获取
+
+    // 1.3 通过标签名获取元素
+    var lis2 = two.getElementsByTagName('li');
+    console.log(lis2);
+    // 易错点
+    // 1） 参数类型：字符串
+    // 2） 在某个具体的元素对象下获取元素
+    // 3) 伪数组：  可以用下标获取元素 可以获取长度  可以遍历   不可以数组的内置方法
+
+    // 1.4 获取body元素
+    document.body
+
+    // 2. 事件
+    // 2.1 事件的概念：用户触发 - 网页响应的过程
+    // 2.2 事件三要素: 事件源 --- 用户触发的元素  
+    //                事件类型--- 用户的操作
+    //                事件处理程序 --- 网页的响应
+    // 2.3 注册事件: element.on+事件类型 = 函数名/匿名函数  
+    // 例子：
+    // 1. 获取事件源 --- two
+    // 2. 添加点击事件 --- click
+    // 3. 添加事件处理程序 --- 打印一个点击了
+    two.onclick = function(){
+      console.log('点击了ul');
+      
+    }
+
+    // 例子：
+    for(var i = 0; i<lis2.length; i++){
+      lis2[i].onclick = function(){
+        console.log(i);
+        console.log(lis2[i]);  // 易错点：拿不到该元素，因为下标是4，超出范围
+      }
+    }
+   
+    // 3. 修改元素的内容
+    // 3.1 修改普通元素的内容
+    // 获取元素
+    var li2 = one.getElementsByTagName('li')[1];
+    console.log(li2);
+    li2.innerHTML = '我是第二个li元素';
+    li2.innerText = '我是用text改的';
+    // 区别： innerHTML可以识别标签  innerText不识别标签
+    li2.innerHTML = '<a href="#">链接</a>';
+    li2.innerText = '<a href="#">链接</a>';
+
+    // 3.2 表单元素
+    var ipt = document.getElementsByTagName('input')[0];
+    ipt.value = '我是默认值';
+
+    // 4. 设置元素的样式
+    // 4.1 style --- 行内样式，优先级高
+    one.style = 'background-color: red';
+    one.style.backgroundColor = 'black'; 
+    // 易错点：值一定是字符串格式
+    // 4.2 className
+    one.className = 'one two';
+    one.classList.add('three');
+    one.classList.remove('two');
+    one.classList.toggle('two');
+
+    
+  </script>
+</body>
+</html>

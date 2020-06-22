@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div data-index = '01'  index = '02'>
+    测试自定义属性
+  </div>
+  <script>
+    // 1. 获取div
+    var div = document.getElementsByTagName('div')[0];
+    // 2. 获取index自定义属性
+    console.log(div.dataset.index);
+
+    // 1. 获取元素属性
+    console.log(div.getAttribute('index'));
+    console.log(div.getAttribute('data-index'));
+    
+    // 2. 设置元素属性
+    div.setAttribute('id','one');
+    // 3. 删除元素属性
+    div.removeAttribute('index');
+  </script>
+</body>
+</html>

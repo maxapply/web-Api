@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 400px;
+      background-color: red;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    测试光标坐标
+  </div>
+  <script>
+   // 1. 获取光标相对绑定事件元素的坐标
+   var div = document.querySelector('div');
+   div.onclick = function(e){
+     console.log(e.offsetX);
+     console.log(e.offsetY);
+     
+   }
+  
+  document.onclick = function(e){
+  // 2. 获取光标相对视口的坐标
+    console.log('视口'+e.clientX);
+    console.log('视口'+e.clientY);
+  // 3. 获取光标相对文档的坐标
+    console.log('文档'+e.pageX);
+    console.log('文档'+e.pageY);
+
+  }
+  </script>
+</body>
+</html>

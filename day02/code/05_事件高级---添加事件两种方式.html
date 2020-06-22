@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    测试添加事件的两种方法
+  </div>
+  <script>
+  // 2. addEventListener : 给同一个元素添加多次相同类型的事件，按照添加顺序依次执行
+  // 1. 获取事件源
+  var div = document.querySelector('div');
+  // 2. 添加事件类型 --- click
+  div.addEventListener('click',function(){
+  // 3. 添加事件处理程序
+    this.innerHTML = '点击过了';
+    this.style.color = 'red';
+    console.log(1);
+    
+  })
+
+  div.addEventListener('click',function(){
+    this.innerHTML = '点击过两次';
+    console.log(2);
+    
+  })
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // 点击div元素，将div元素的内容修改成点击过了，字体色改成红色
+  // 1. on方式
+  // 1. 获取事件源
+  // var div = document.querySelector('div');
+  // // 2. 添加事件类型 --- click
+  // div.onclick = function (){
+  // // 3. 添加事件处理程序 --- 内容修改成点击过了，字体色改成红色
+  // // 3.1 内容修改成点击过了
+  //   this.innerHTML = '点击过了';
+  // // 3.2 字体色改成红色
+  //   this.style.color = 'red';
+  // }
+
+  // // 点击div 将内容修改成 ‘点击了第二次’
+  // div.onclick = function(){
+  //   this.innerHTML = '点击了第二次';
+  // }
+
+  // // on添加事件的特点：多次添加，只有最后一次生效
+  </script>
+</body>
+</html>
