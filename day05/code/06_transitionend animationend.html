@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  div{
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+   /*  animation: move 2s 1; */
+    animation: move 2s infinite;
+    /* transition: width 2s linear; */
+  }
+  @keyframes move {
+    0%{
+      width: 200px;
+    }
+    100%{
+      width: 600px;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div></div>
+  <button>按钮</button>
+  <script>
+   // 当动画执行结束时，触发该事件
+   // 1. 获取事件源 --- div
+   var div = document.querySelector('div');
+   // 2. 添加事件类型 --- animationend
+   div.addEventListener('animationend',function(){
+   // 3. 添加事件处理程序
+    alert('动画结束');
+   })
+  
+
+   // 当点击按钮时，将div的宽度改600px
+   var btn = document.querySelector('button');
+   btn.onclick = function(){
+     div.style.width = '600px';
+   }
+
+   // 当过渡结束时，触发该事件
+   // 1. 获取事件源 --- div
+   // 2. 添加事件类型 --- transitionend
+   div.addEventListener('transitionend',function(){
+   // 3. 添加事件处理程序 --- 过渡结束时，弹出‘过渡结束’
+    alert('过渡结束');
+   })
+  </script>
+</body>
+</html>

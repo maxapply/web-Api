@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // 1. location : 控制浏览器的地址栏
+  location.href = 'http://www.baidu.com/index.html?q=hgh&w=jshdgjh';
+  // 2. 本地存储
+  localStorage.setItem('键名','键值')
+  localStorage.getItem('键名')
+  localStorage.removeItem('键名')
+  localStorage.clear()
+  // 特点
+  // 2.1.1 共享：同一个浏览器同源页面共享
+  // 2.1.2 周期：只要不手动清除，就一直存在
+  // 2.1.3存储大小：20M
+  // 2.1.4 存储数据结构：键值对形式存在，键名和键值都是字符串
+
+  sessionStorage.setItem('键名','键值')
+  sessionStorage.getItem('键名')
+  sessionStorage.removeItem('键名')
+  sessionStorage.clear()
+
+  // 特点
+  // 2.2.1 共享：同一个html页面共享
+  // 2.2.2 周期：关闭页面清空
+  // 2.2.3 存储大小：5M
+  // 2.1.4 存储数据结构：键值对形式存在，键名和键值都是字符串
+
+  // 3. JSON
+  JSON.stringify(复杂数据类型) // 将复杂数据类型转换成具有复杂数据类型格式的字符串
+  JSON.parse(字符串)   // 将具有复杂数据类型格式的字符串转换成复杂数据类型
+
+  // 4. 键盘事件
+  // 4.1 键盘抬起 keyup (常用) ： 抬起一次
+  // 4.2 键盘按下 keydown ： 只要按着不动就一直触发
+  // 4.3 e.keyCode : 判断用户按下的键的键码
+  // 4.4 e.ctrlKey: 判断用户是否按下了ctrl键
+
+  // 5. 鼠标移入和移出
+  // 5.1 mouseover  : 鼠标移入到某个元素内部的一瞬间触发
+  // 5.2 mouseout   : 鼠标移出到某个元素内部的一瞬间触发
+
+  // 6. 排他思想：先干掉所有的，再保留自己的 （顺序不能颠倒）
+  </script>
+</body>
+</html>

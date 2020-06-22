@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      body p:nth-child(1) {
+        background-color: red;
+      }
+  
+      body p:nth-child(2) {
+        background-color: blue;
+      }
+  
+      p {
+        position: absolute;
+        transition: all 0.3s;
+      }
+  
+      /*  */
+  
+      body p.pos_1 {
+        width: 400px;
+        height: 200px;
+        top: 200px;
+        left: 200px;
+        z-index: 99;
+      }
+  
+      body p.pos_2 {
+        width: 300px;
+        height: 150px;
+        top: 180px;
+        left: 500px;
+        z-index: 0;
+      }
+  
+      .btn {
+        width: 50px;
+        height: 50px;
+        background-color: #222;
+        position: absolute;
+        top: 50%;
+        right: 300px;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        font-size: 40px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+    <p>1</p>
+    <p>2</p>
+    <div class="btn" id="btn">></div>
+    <script>
+     // 1. 让p元素有类名
+     var arr = ['pos_1','pos_2'];
+     var ps = document.querySelectorAll('p');
+     for(var i = 0; i< ps.length; i++){
+       ps[i].className = arr[i];
+     }
+     // 2. 点击按钮是，让类名交换
+     // 2.1 获取事件源 --- 按钮
+     var btn = document.querySelector('.btn');
+     // 2.2 事件类型 --- click
+     btn.onclick = function(){
+     // 2.3 添加事件处理程序 --- 类名交换
+     // 2.3.1 交换数组中两个元素的位置
+       arr.unshift(arr.pop())
+     // 2.3.2 for循环给每个元素添加类名
+      for(var i = 0; i< ps.length; i++){
+        ps[i].className = arr[i];
+      }
+     }
+    </script>
+</body>
+</html>

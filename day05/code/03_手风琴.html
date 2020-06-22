@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+      display: flex;
+      width: 1200px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    li {
+      width: 240px;
+      height: 400px;
+      transition: width 500ms
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <a href="#">
+        <img src="images/1.jpg" alt="">
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="images/2.jpg" alt="">
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="images/3.jpg" alt="">
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="images/4.jpg" alt="">
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="images/5.jpg" alt="">
+      </a>
+    </li>
+  </ul>
+  <script>
+   // 思路
+   // 1. 鼠标移入改变每一个元素的宽度，当前li元素的宽度
+   // 1.1 获取事件源 --- 所有li元素
+   var lis = document.querySelectorAll('li');
+   for(var i = 0; i<lis.length; i++){
+   // 1.2 添加事件类型 --- 鼠标移入事件
+     lis[i].onmouseover = function(){
+   // 1.3 添加事件处理程序 -- 每一个元素的宽度，当前li元素的宽度
+        for(var j =0 ; j<lis.length ; j++){
+          lis[j].style.width = '100px';
+        }
+        this.style.width = '800px';
+     }
+   }
+
+
+
+   // 2. 鼠标移出改变每一个元素的宽度
+   // 2.1 获取事件源 --- ul
+   var ul = document.querySelector('ul');
+   // 2.2 添加事件类型 --- 鼠标移出
+   ul.onmouseout = function(){
+   // 2.3 添加事件处理程序 --- 改变每一个元素的宽度为240px
+    for(var i = 0; i<lis.length; i++){
+      lis[i].style.width = '240px';
+    }
+   }
+  </script>
+</body>
+
+</html>

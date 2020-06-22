@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .slide {
+      position: relative;
+
+      width: 1200px;
+      height: 500px;
+    }
+
+    .slide li {
+      position: absolute;
+      left: 200px;
+      top: 0;
+      list-style: none;
+      transition: all 350ms;
+    }
+
+    .prev,
+    .next {
+      width: 76px;
+      height: 112px;
+      position: absolute;
+      top: 50%;
+      margin-top: -56px;
+      background: url(./images/prev.png) no-repeat;
+      z-index: 99;
+    }
+
+    .next {
+      right: 0;
+      background-image: url(./images/next.png);
+    }
+
+    li img {
+      width: 100%;
+    }
+
+    .slide li.left1 {
+      width: 400px;
+      top: 20px;
+      left: 50px;
+      opacity: 0.2;
+      z-index: 2;
+    }
+
+    .slide li.left2 {
+      width: 600px;
+      top: 70px;
+      left: 0px;
+      opacity: 0.8;
+      z-index: 3;
+    }
+
+    .slide li.middle {
+      width: 800px;
+      top: 100px;
+      left: 200px;
+      opacity: 1;
+      z-index: 4;
+    }
+
+    .slide li.right2 {
+      width: 600px;
+      top: 70px;
+      left: 600px;
+      opacity: 0.8;
+      z-index: 3;
+    }
+
+    .slide li.right1 {
+      width: 400px;
+      top: 20px;
+      left: 750px;
+      opacity: 0.2;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='slide'>
+    <ul>
+      <li>
+        <img src="images/slidepic1.jpg" alt="">
+      </li>
+      <li>
+        <img src="images/slidepic2.jpg" alt="">
+      </li>
+      <li>
+        <img src="images/slidepic3.jpg" alt="">
+      </li>
+      <li>
+        <img src="images/slidepic4.jpg" alt="">
+      </li>
+      <li>
+        <img src="images/slidepic5.jpg" alt="">
+      </li>
+    </ul>
+    <div class="arrow" id="arrow">
+      <a href="javascript:;" class="prev" id="arrLeft"></a>
+      <a href="javascript:;" class="next" id="arrRight"></a>
+    </div>
+  </div>
+  <script>
+  // 1. 创建数组将类名存放在里面
+  var arr = ['left1','left2','middle','right2','right1'];
+  // 2. 给每一个li元素添加类名
+  var lis = document.querySelectorAll('li');
+  for(var i = 0; i<lis.length; i++){
+    lis[i].className = arr[i];
+  }
+
+  // 给右边按钮添加点击事件
+  // 1. 获取事件源 --- 右边按钮
+  var btnRight = document.querySelector('#arrRight');
+  // 2. 添加事件类型 --- click
+  btnRight.onclick = function(){
+  // 3. 添加事件处理程序 
+  // 3.1 数组元素交换位置
+  // console.log(arr.shift()) 
+  // console.log(arr);
+   arr.push(arr.shift());
+  // console.log(arr);
+  // 3.2 用数组元素给每一个li元素设置类名
+    for(var i = 0; i<lis.length; i++){
+      lis[i].className = arr[i];
+    }
+  }
+
+  var btnLeft = document.querySelector('#arrLeft');
+  btnLeft.onclick = function(){
+    arr.unshift(arr.pop());
+    for(var i = 0; i<lis.length; i++){
+      lis[i].className = arr[i];
+    }
+  }
+  </script>
+</body>
+
+</html>

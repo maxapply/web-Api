@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <table border='1'>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>20</td>
+      <td>21</td>
+      <td>22</td>
+      <td>23</td>
+      <td>24</td>
+    </tr>
+  </table>
+  <input type="button" value="点名开始">
+  <script>
+   // 获取[min,max] 之间的随机数  Math.random()*(max-min+1)+min 
+   // 封装一个函数，获取随机颜色值
+   function getColor (){
+      var r = parseInt(Math.random()*(255 - 0 + 1) + 0);
+      var g = parseInt(Math.random()*(255 - 0 + 1) + 0);
+      var b = parseInt(Math.random()*(255 - 0 + 1) + 0);
+      return 'rgb('+r+','+g+','+b+')'
+   }
+   console.log(getColor());
+  
+  // 获取所有td
+  var tds = document.querySelectorAll('td');
+  // 1. 获取事件源 --- 按钮
+  var btn = document.querySelector('input');
+  // 创建周期定时器的名称
+  var timer;
+  // 2. 添加事件类型 --- click
+  btn.onclick = function(){
+  // 3. 添加事件处理程序 --- 
+  // 判断按钮的内容，当按钮内容是‘点名开始’时，点击是，去选
+  // 如果内容不是‘点名开始’,点击时，清除周期定时器
+    if(this.value == '点名开始'){
+      this.value = '点名结束';
+    // 3.1 创建周期定时器
+      timer = setInterval(function(){
+      // 3.2 在周期定时器内部，随机获取td
+        var index = parseInt(Math.random()*(tds.length-1 - 0 + 1)+0);
+      // 3.3 将所有的td的背景色现改称白色，改变的td的背景色（随机）
+        for(var i = 0; i< tds.length; i++){
+          tds[i].style.backgroundColor = '#fff';
+        }
+        tds[index].style.backgroundColor = getColor();
+
+      },30)
+    }else{
+      clearInterval(timer);
+      this.value = '点名开始';
+    }
+  }
+  </script>
+</body>
+
+</html>

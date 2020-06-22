@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 322px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      overflow: hidden;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .bd {
+      height: 105px;
+      transition: all 900ms;
+    }
+
+    .box {
+      transition: all 900ms;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box">
+    <span id="closeButton"></span>
+    <div class="hd" id="headPart">
+      <img src="images/t.jpg" alt="" />
+    </div>
+    <div class="bd" id="bottomPart">
+      <img src="images/b.jpg" alt="" />
+    </div>
+  </div>
+  <script>
+   // 思路
+   // 1. 点击关闭按钮时，将下方盒子的高度设置成0
+   // 获取下方盒子
+   var bottomBox = document.querySelector('#bottomPart');
+   // 获取大盒子
+   var box = document.querySelector('#box');
+   // 1.1 获取事件源 --- 关闭按钮
+   var btn = document.querySelector('#closeButton');
+   // 1.2 添加事件类型 --- click
+   btn.onclick = function(){
+   // 1.3 添加事件处理程序
+    bottomBox.style.height = 0;
+   }
+
+   // 2. 当下方盒子的过渡结束时，把大盒子的宽度设置成0
+   bottomBox.addEventListener('transitionend',function(){
+     box.style.width = 0;
+   })
+  </script>
+</body>
+
+</html>
